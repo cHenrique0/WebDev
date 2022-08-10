@@ -1,0 +1,72 @@
+<!--
+    Atributos HTML:
+        Servem como informações extras para colocar no elemento.
+        Servem também como configurações do elemento
+    
+    Anatomia do atributo:
+
+        <tag atributo_1="conteudo do atributo" atributo_2="conteudo do atributo">
+-->
+
+<!-- Os atributos do elemento img são de configuração, sem eles a tag não funciona-->
+<img src="" alt="">
+
+
+
+<!--
+    Atributos booleanos:
+        Esses atributos não precisam de conteúdo!
+-->
+
+<!-- O atributo 'disable' é booleano-->
+<input type="text" disabled>
+
+
+<!--
+    Atributos globais:
+        - class:
+            Usado para aplicar estilo css e acessar no javascript
+
+        - contenteditable:
+            Permite editar o conteudo
+
+        - data-*:
+            O * pode ser substituido por qualquer palavra.
+            ex:
+                data-qualquer-palavra
+                data-qualquerpalavra
+
+        - hidden:
+            Esconde uma tag
+            É um atributo booleano
+
+        - id:
+
+        - style
+
+        - tabindex:
+            auxilia na navegação usando a tecla 'tab' de acordo
+            com o indice atribuibo ao atributo(1, 2, 3, 4,...)
+
+        - title:
+            Define um titulo para a tag.
+    
+    Para mais informações acessar: https://developer.mozilla.org/pt-BR/docs/Web/HTML/Global_attributes
+-->
+
+<div class="carrinho" contenteditable="true" tabindex="4">
+    <!-- outros elementos-->
+    conteudo 1
+</div>
+<div class="carrinho" id="name" tabindex="1" title="ALGUM TITULO">
+    <!-- outros elementos-->
+    conteudo 2
+</div>
+<div class="carrinho" hidden tabindex="2">
+    <!-- outros elementos-->
+    conteudo 3
+</div>
+<div class="carrinho" tabindex="3">
+    <!-- outros elementos-->
+    conteudo 4
+</div>

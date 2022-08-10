@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;600&display=swap');
+
+* {
+    font-family: 'Consolas', sans-serif;
+    color: #FFF;
+}
+
+body {
+    background-color: #222;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 350px;
+    margin: 100px auto;
+    border: 2px solid white;
+}
+
+.container h1 {
+    padding: 0 90px 10px 90px;
+    border-bottom: 2px solid white;
+}
+
+.counter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+}
+
+.buttons {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.buttons button {
+    border: 2px solid #000;
+    background-color: blueviolet;
+    color: #000;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    margin: 10px 5px;
+    height: 30px;
+    max-width: 100px;
+}
+
+.buttons button:hover {
+    color: #FFF;
+}
+
+#currentNumber {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16pt;
+}

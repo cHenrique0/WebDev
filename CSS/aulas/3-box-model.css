@@ -1,0 +1,16 @@
+
+/*
+    Caixas
+
+    (Quase) tudo no CSS são caixas
+    Possuem posicionamento, tamanhos, espaçamentos, bordas, cores
+    Uma caixa pode ficar ao lado de outra, ou acima, ou abaixo.
+    Os elementos HTML são caixas
+
+*/
+
+h1 {
+    border: 1px solid red; /* borda de 1px, sólida e vermelha */
+    margin: 200px; /* espaçamento fora da caixa(apartir da borda) */
+    padding: 60px; /* espaçamento dentro da caixa(apartir da borda) */
+}

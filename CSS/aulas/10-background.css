@@ -1,0 +1,83 @@
+/* 
+    Background
+
+        Define um fundo para o elemento
+        Sua área de atuação é a caixa toda
+        É transparente por padrão
+
+        Podemos:
+            > Usar cores sólidas
+            > Usar imagens
+            > Controlar:
+                - a posição das imagens
+                - se elas se repetem ou não
+                - o tamanho da imagem na caixa
+            > Usar cor e imagem juntas
+            > Usar cor gradiente
+*/
+
+* {
+    margin: 0;
+}
+
+header {
+    height: 100px;
+    border: 3px dashed red;
+
+    /* define a cor de fundo do elemento */
+    /* background-color: aqua; */
+    
+    /* define uma imagem de fundo. O valor pode ser uma url ou um caminho local */
+    /* background-image: url("https://source.unsplash.com/random"); */
+    
+    /* define se a imagem se repete ou não. Por padrão, a imagem repete*/
+    background-repeat: no-repeat; /* não repete */
+    
+    /* Define a posição da imagem. O 1º valor é referente à posição horizontal, o 2º à vertical
+       Se tiver só um valor ele é aplicado em ambas as posições horizontal e vertical*/
+    /* background-position: right center; */
+    background-position: center;
+    
+    /* Muda o tamanho da imagem. Possui alguns valores:
+        - contain: a imagem fica dentro da caixa
+        - cover: a imagem cobre todo o background da caixa
+        - porcentagem: 1 valor(aplica na horizontal e vertical é auto), 2 valores(horizontal e vertical)
+        - outros valores de tamnhos: px, em...
+    */
+    background-size: contain;
+    
+    /* define a origem da imagem
+            - border-box: começa a partir da borda da caixa
+            - content-box: é o padrão.
+            - padding-box: começa a partir do padding
+    */
+    background-origin: border-box;
+
+    /* Define a orgim tanto da cor quanto da imagem.
+       Por padrão é border-box.
+    */
+    background-clip: border-box;
+}
+
+main{
+    background-color: aqua;
+    background-image: url("https://source.unsplash.com/random");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-origin: content-box;
+    background-clip: content-box;
+
+    /* define se a imagem fica fixa ao rolar a pagina. Por padrão é scrool*/
+    background-attachment: fixed;
+
+    /* define o gradiente(degradê) do background */
+    /* background: linear-gradient(180deg, red, yellow); */
+    /* background: radial-gradient(red, yellow, green); */
+
+    /* Podemos usar multiplos backgrounds. Apenas precisamos separar as configurações
+       de cada um usando virgulas.
+    
+    background: config_1, config_2, config_3, ..., config_n;
+    */
+}

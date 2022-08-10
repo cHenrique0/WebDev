@@ -1,0 +1,2 @@
+
+/* Exemple JavaScript file */

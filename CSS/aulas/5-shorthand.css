@@ -1,0 +1,27 @@
+/*
+    Shorthand
+
+        É uma junção de propriedades.
+        Uma ideia de colocar diversas propriedades do css de uma maneira resumida e mais legivel
+
+*/
+
+.classe {
+    /* Propriedades do 'background': */
+    background-color: #000;
+    background-image: url(caminho/da/imagem);
+    background-repeat: no-repeat;
+    background-position: left top;
+
+    /* Shorthand do 'background': */
+    background: #000 url(caminho/da/imagem) no-repeat left top;
+}
+
+/* 
+    Observações: 
+
+        - O shorthand não considera as propriedades anteriores. Ele sempre será aplicado dispensando
+        as propriedades definidas antes dele.
+        - valores não definidos no shorthand irão assumir o valor padrão
+        - geralmente não há uma ordem de escrita dos valores das propriedades.
+*/

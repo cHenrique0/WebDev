@@ -1,0 +1,55 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Test Moment Api",
+      "database": "moment_api",
+      "username": "chenrique",
+      "password": "Claudio100%"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "User Authentication",
+      "database": "user_auth",
+      "username": "chenrique",
+      "password": "Claudio100%"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "File upload V2",
+      "database": "file_upload_db",
+      "username": "chenrique",
+      "password": "Claudio100%"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Todo api",
+      "database": "todo_api",
+      "username": "chenrique",
+      "password": "Claudio100%"
+    },
+    {
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "driver": "PostgreSQL",
+      "name": "Tutorial API",
+      "database": "tutorials_db",
+      "username": "chenrique",
+      "password": "Claudio100%"
+    }
+  ],
+  "sqltools.useNodeRuntime": true
+}

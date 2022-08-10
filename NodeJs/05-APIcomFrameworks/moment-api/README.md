@@ -1,0 +1,1 @@
+# API que será consumida por um front end construído em Angular

@@ -1,0 +1,38 @@
+/*
+    Selectors:
+
+        Conecta um elemento HTML ao CSS
+
+    Tipos:
+        - Global Selectors: *
+        - Element/Type selector: h1, h2, p, div, a, etc
+        - ID Selector: #box, #container
+        - Class selector: .red, .m-4
+        - Attribute selector, Pseud-class, Pseudo-element, entre outros.
+*/
+
+/* Global selector*/
+
+/* Aplica as configurações em TODAS as tags do HTML*/
+* {
+    margin: 0;
+}
+
+/* Aplica as configurações em todos os elementos h1 e h2 do HTML */
+/* Se queremos aplicar as mesmas configurações em varios elementos,
+podemos agrupá-los como abaixo: */
+h1, h2 {
+    color: green;
+    font-size: 60px;
+    background-color: gray;
+}
+
+/* Aplica as configurações APENAS no elemento que tem o id 'container'*/
+#container {
+    width: 250px;
+}
+
+/* Aplica as configrações APENAS no elemento que possui a class 'm-40'*/
+.m-40 {
+    margin: 40px;
+}

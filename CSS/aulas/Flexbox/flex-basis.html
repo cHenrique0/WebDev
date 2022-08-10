@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Fundamentos - flex basis</title>
+
+  <style>
+    .flex-container {
+      display: flex;
+      margin: 0 auto;
+      max-width: 500px;
+      border: 1px solid black;
+    }
+
+    .flex-item {
+      background-color: coral;
+      color: white;
+      text-align: center;
+      margin: 5px;
+    }
+
+    .flex-grow-0 {
+      flex-grow: 0;
+    }
+
+    .flex-grow-1 {
+      flex-grow: 1;
+    }
+    
+    .flex-grow-2 {
+      flex-grow: 2;
+    }
+
+    .flex-basis-auto {
+      flex-basis: auto;
+    }
+    
+    .flex-basis-0 {
+      flex-basis: 0;
+    }
+    
+    .flex-basis-tamanho-definido {
+      flex-basis: 100px;
+    }
+
+  </style>
+</head>
+<body>
+  <h2>flex-basis: auto</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-basis-auto flex-grow-1">A</div>
+    <div class="flex-item flex-basis-auto flex-grow-1">BBB</div>
+    <div class="flex-item flex-basis-auto flex-grow-1">C</div>
+    <div class="flex-item flex-basis-auto flex-grow-2">DDD</div>
+  </div>
+  
+  <h2>flex-basis: 0</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-basis-0 flex-grow-1">A</div>
+    <div class="flex-item flex-basis-0 flex-grow-1">BBB</div>
+    <div class="flex-item flex-basis-0 flex-grow-1">C</div>
+    <div class="flex-item flex-basis-0 flex-grow-1">DDD</div>
+  </div>
+  
+  <h2>flex-basis: tamanho definido / flex-grow: 0</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-0">A</div>
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-0">BBB</div>
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-0">C</div>
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-0">DDD</div>
+  </div>
+  
+  <h2>flex-basis: tamanho definido / flex-grow: 1</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-1">A</div>
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-1">BBB</div>
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-1">C</div>
+    <div class="flex-item flex-basis-tamanho-definido flex-grow-1">DDD</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Fundamentos - flex shrink</title>
+
+  <style>
+    .flex-container {
+      display: flex;
+      margin: 0 auto;
+      border: 1px solid black;
+      max-width: 350px;
+    }
+
+    .flex-item {
+      margin: 5px;
+      background-color: orangered;
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .flex-grow-1 {
+      flex-grow: 1;
+    }
+
+    .flex-shrink-1 {
+      flex-shrink: 1;
+    }
+    
+    .flex-shrink-0 {
+      flex-shrink: 0;
+      flex-basis: 100px;
+    }
+  </style>
+</head>
+<body>
+  <h2>flex-shrink: 1</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-shrink-1 flex-grow-1">A</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">B</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">C</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">D</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">E</div>
+  </div>
+  
+  <h2>flex-shrink: 1</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-shrink-1 flex-grow-1">A</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">C</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">Lorem ipsum</div>
+    <div class="flex-item flex-shrink-1 flex-grow-1">E</div>
+  </div>
+  
+  <h2>flex-shrink: 0 / flex-basis: algum valor</h2>
+  <div class="flex-container">
+    <div class="flex-item flex-shrink-0">A</div>
+    <div class="flex-item flex-shrink-0">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+    <div class="flex-item flex-shrink-0">C</div>
+    <div class="flex-item flex-shrink-0">Lorem ipsum</div>
+    <div class="flex-item flex-shrink-0">E</div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Fundamentos - Align self</title>
+
+  <style>
+    .flex-container {
+      max-width: 350px;
+      border: 1px solid black;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    .flex-item {
+      background-color: brown;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+      margin: 5px;
+    }
+
+    .align-self-center {
+      align-self: center;
+    }
+
+    .align-self-start {
+      align-self: flex-start;
+    }
+
+    .align-self-end {
+      align-self: flex-end;
+    }
+
+    .align-self-baseline {
+      align-self: baseline;
+    }
+
+    .align-self-stretch {
+      align-self: stretch;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>align-self: auto (padrão)</h2>
+  <section class="flex-container">
+    <div class="flex-item">AAA</div>
+    <div class="flex-item">123</div>
+    <div class="flex-item">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item">ITEM 4</div>
+  </section>
+
+  <h2>align-self: center</h2>
+  <section class="flex-container">
+    <div class="flex-item align-self-center">AAA</div>
+    <div class="flex-item align-self-center">123</div>
+    <div class="flex-item align-self-center">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item align-self-center">ITEM 4</div>
+  </section>
+
+  <h2>align-self: flex-start</h2>
+  <section class="flex-container">
+    <div class="flex-item align-self-start">AAA</div>
+    <div class="flex-item align-self-start">123</div>
+    <div class="flex-item align-self-start">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item align-self-start">ITEM 4</div>
+  </section>
+
+  <h2>align-self: flex-end</h2>
+  <section class="flex-container">
+    <div class="flex-item align-self-end">AAA</div>
+    <div class="flex-item align-self-end">123</div>
+    <div class="flex-item align-self-end">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item align-self-end">ITEM 4</div>
+  </section>
+
+  <h2>align-self: baseline</h2>
+  <section class="flex-container">
+    <div class="flex-item align-self-baseline">AAA</div>
+    <div class="flex-item align-self-baseline">123</div>
+    <div class="flex-item align-self-baseline">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item align-self-baseline">ITEM 4</div>
+  </section>
+
+  <h2>align-self: stretch</h2>
+  <section class="flex-container">
+    <div class="flex-item align-self-stretch">AAA</div>
+    <div class="flex-item align-self-stretch">123</div>
+    <div class="flex-item align-self-stretch">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item align-self-stretch">ITEM 4</div>
+  </section>
+
+  <h2>misturando</h2>
+  <section class="flex-container">
+    <div class="flex-item align-self-center">AAA</div>
+    <div class="flex-item align-self-start">123</div>
+    <div class="flex-item align-self-stretch">Lorem ipsum dolor sit, amet consectetur adipisicing elit.</div>
+    <div class="flex-item align-self-end">ITEM 4</div>
+  </section>
+</body>
+
+</html>

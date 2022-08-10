@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Fundamentos - Display Flex</title>
+  <!-- Criando o style dentro do html para fins de aprendizagem -->
+  <style>
+    h2 {
+      text-align: center;
+    }
+    /* Configurações do container */
+    .flex {
+      max-width: 300px;
+      padding: 10px;
+      margin: 0 auto;
+      border: 2px solid #000;
+      /* iniciando o container como flex */
+      display: flex;
+    }
+
+    /* configurações dos itens  */
+    .item {
+      background-color: aqua;
+      margin: 5px
+    }
+
+    .block {
+      display: block;
+      max-width: 300px;
+      padding: 10px;
+      margin: 0 auto;
+      border: 2px solid #000;
+      text-align: center;
+    }
+
+  </style>
+</head>
+
+<body>
+  <h2>display: block</h2>
+  <div class="block">
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+  </div>
+
+  <h2>display: flex</h2>
+  <div class="flex">
+    <div class="item">item 1</div>
+    <div class="item">item 2</div>
+    <div class="item">item 3</div>
+  </div>
+</body>
+
+</html>

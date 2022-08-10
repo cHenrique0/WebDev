@@ -1,0 +1,203 @@
+body,
+ul,
+li,
+p {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+}
+
+a {
+  text-decoration: none;
+  color: #FFF;
+}
+
+a:hover {
+  color: lightgreen;
+}
+
+h2 {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #1D1E20;
+  padding: 20px;
+}
+
+.menu {
+  display: flex;
+}
+
+.menu li {
+  margin-left: 10px;
+}
+
+.menu li a {
+  display: block;
+  padding: 10px;
+}
+
+/* CSS FLEXBOX */
+
+.flexbox {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: 0 auto;
+
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+.flexbox div {
+  flex: 1 1 200px;
+  margin: 10px;
+
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+.flexbox figcaption {
+  text-align: center;
+
+  /* borda para verificar o comportamento */
+  border-top: 1px solid black;
+}
+
+/* CSS GRID LAYOUT 1 */
+
+.grid-1 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 800px;
+  padding: 5px;
+  margin: 0 auto;
+  gap: 10px;
+
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+.grid-1 div {
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+/* a partir do quarto item */
+.grid-1 div:nth-child(n+4) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.anuncio {
+  /* Posiciona sempre na coluna 1 do grid */
+  grid-column: 1;
+  /* Vai da linha 2 até a linha 5 do grid */
+  grid-row: 2 / 5;
+}
+
+@media (max-width: 600px) {
+  .grid-1 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-1 div:nth-child(n+4) {
+    display: block;
+  }
+
+  .anuncio {
+    grid-column: auto;
+    grid-row: auto;
+    order: -1;
+  }
+}
+
+/* CSS GRID LAYOUT 2 */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 20px;
+  max-width: 800px;
+  padding: 10px;
+  margin: 0 auto;
+
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+.grid-2 div {
+  margin: 5px;
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+@media (max-width: 600px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    display: flex;
+    overflow: scroll;
+  }
+
+  .sidebar div {
+    flex: 1 1 200px;
+    margin: 5px 10px;
+  }
+}
+
+/* CSS GRID LAYOUT 3 */
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 10px;
+
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+.grid-3-item:nth-child(1) {
+  grid-row: 1 / 3;
+}
+
+.grid-3-item {
+  display: grid;
+
+  /* borda para verificar o comportamento */
+  border: 1px solid black;
+}
+
+.grid-3-item img {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  align-self: end;
+}
+
+.grid-3-item figcaption {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 10px;
+  color: white;
+  grid-column: 1;
+  grid-row: 2;
+  align-self: end;
+}

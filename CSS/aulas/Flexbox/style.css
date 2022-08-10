@@ -1,0 +1,52 @@
+body,
+ul,
+li,
+p {
+  margin: 0;
+  padding: 0px;
+  list-style: none;
+  font-size: 1.2rem;
+  font-family: Arial;
+  background-color: lightgray;
+  font-family: 'Consolas';
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+}
+
+a:hover {
+  color: lightblue;
+}
+
+h1 {
+  text-align: center;
+}
+
+h2 {
+  text-align: center;
+  margin: 30px;
+}
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  max-width: 800px;
+  max-height: 200px;
+  padding: 10px;
+  border: 1px solid;
+}
+
+.menu li {
+  text-align: center;
+  height: 25px;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 15px;
+  background-color: blueviolet;
+}

@@ -1,0 +1,18 @@
+/*
+    Anatomia
+
+    Declaração:
+
+    selector {
+        property: value;
+    }
+
+*/
+
+/* Exemplos: */
+
+h1 {    /* mudas as propriedade do h1 no HTML de acordo com os valores indicados */
+    color: blue;
+    font-size: 60px;
+    background-color: gray;
+}

@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Overpass', sans-serif;
+  color: hsl(0, 0%, 100%);
+}
+
+body {
+  background: hsl(216, 12%, 8%);
+  max-width: 1440px;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+p {
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.5;
+  margin-bottom: 25px;
+  color: hsl(217, 12%, 63%);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  padding: 30px;
+  margin: 110px auto;
+  border-radius: 25px;
+  background: hsl(213, 19%, 18%);
+}
+
+.rating-icon {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+  padding: 15px;
+  border-radius: 50%;
+  margin-bottom: 25px;
+  background: hsla(217, 12%, 63%, 0.2);
+}
+
+.rating-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+
+.rating-buttons button {
+  background: hsla(217, 12%, 63%, 0.2);
+  color: hsl(217, 12%, 63%);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: none;
+}
+
+.rating-buttons button:hover {
+  color: hsl(0, 0%, 100%);
+  background: hsl(25, 97%, 53%);
+  transition: 0.3s;
+}
+
+.rating-buttons button:focus {
+  outline-style: none;
+  background: hsl(216, 12%, 54%);
+  color: hsl(0, 0%, 100%);
+}
+
+#rating-form {
+  display: flex;
+  flex-direction: column;
+}
+
+button#submit {
+  color: hsl(0, 0%, 100%);
+  background: hsl(25, 97%, 53%);
+  border: none;
+  border-radius: 25px;
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+button#submit:hover {
+  color: hsl(25, 97%, 53%);
+  background: hsl(0, 0%, 100%);
+  transition: 0.3s;
+}
+
+button#submit:focus {
+  outline-style: none;
+}
+
+.thanks-img {
+  align-self: center;
+  margin: 20px;
+}
+
+.rating-choice {
+  align-self: center;
+  color: hsl(25, 97%, 53%);
+  font-size: 18px;
+  font-weight: 400;
+  background: hsla(217, 12%, 63%, 0.2);
+  border: none;
+  border-radius: 30px;
+  padding: 5px 20px;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+#thanks-card h1 {
+  text-align: center;
+  margin: 15px;
+}
+
+#thanks-card p {
+  text-align: center;
+}
+
+.card#thanks-card {
+  display: none;
+  margin: 90px auto;
+}

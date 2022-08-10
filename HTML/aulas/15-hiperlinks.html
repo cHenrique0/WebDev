@@ -1,0 +1,101 @@
+<!--
+    Hyperlinks - Elemento Âncora: <a></a>
+
+        - Anatomia básica:
+            <a href="">Conteudo</a>
+        
+        - Atributos:
+            - globais:
+                title, id, class, etc
+            
+            - href:
+                É o principal, sem esse atributo a tag <a> não funciona.
+                Recebe a url da página que queremos levar o usuário.
+                Pode ser:
+                    - url completa
+                    - fragmento
+                    - email
+                    - telefone
+                    - outros
+            
+            - download:
+                faz o download da pagina do link ao invés de acessar a página.
+            
+            - target:
+                - _self(default): abre na mesma página
+                - _blank: abre uma nova página
+-->
+
+<!-- Praticando -->
+<h1>Praticando a tag <code>&lt;a&gt;</code></h1>
+
+<p>
+    URL completa e abrindo na mesma página: <br>
+    <a href="https://www.google.com">Website</a>
+    <!--OBS: podemos ocultar o target="_self" pois ele é o padrão-->
+</p>
+
+<p>
+    URL completa e abrindo numa nova página: <br>
+    <a href="https://www.google.com" target="_blank">Website</a>
+</p>
+
+<p>
+    Enviando e-mail: <br>
+    <a href="mailto:claudio.alexandre@discente.ufma.br">E-mail</a>
+    <!--Abre o cliente de email do usuário para enviar uma nova mensagem de
+        email ao destinatario informado no atributo-->
+</p>
+
+<p>
+    Fazer chamadas pelo celular: <br>
+    <a href="tel:+5598985078334">Telefone</a>
+    <!--Envia a chamada para o celular sincronizado ao navegador ou abre um app de chamada-->
+</p>
+
+<p>
+    Atributo fragmento:
+    <ul>
+        <li><a href="#about">Sobre mim</a></li>
+        <li><a href="#history">História</a></li>
+        <li><a href="#works">Trabalhos</a></li>
+    </ul>
+    <!-- Ao clicar no link o usuário será levado para o conteudo com o id(#nome-id) informado
+        para isso é necessário adicionar o atributo global id na tag, como nos exemplos a seguir-->
+</p>
+
+<h2 id="about">Sobre mim</h2>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+    Asperiores nobis autem facilis repellat, aperiam distinctio odio doloremque at quaerat quis quas est? <br>
+    Nostrum obcaecati corporis officia omnis qui nihil inventore.
+</p>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+    Asperiores nobis autem facilis repellat, aperiam distinctio odio doloremque at quaerat quis quas est? <br>
+    Nostrum obcaecati corporis officia omnis qui nihil inventore.
+</p>
+
+<h2 id="history">História</h2>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+    Asperiores nobis autem facilis repellat, aperiam distinctio odio doloremque at quaerat quis quas est? <br>
+    Nostrum obcaecati corporis officia omnis qui nihil inventore.
+</p>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+    Asperiores nobis autem facilis repellat, aperiam distinctio odio doloremque at quaerat quis quas est? <br>
+    Nostrum obcaecati corporis officia omnis qui nihil inventore.
+</p>
+
+<h2 id="works">Trabalhos</h2>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+    Asperiores nobis autem facilis repellat, aperiam distinctio odio doloremque at quaerat quis quas est? <br>
+    Nostrum obcaecati corporis officia omnis qui nihil inventore.
+</p>
+<p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+    Asperiores nobis autem facilis repellat, aperiam distinctio odio doloremque at quaerat quis quas est? <br>
+    Nostrum obcaecati corporis officia omnis qui nihil inventore.
+</p>

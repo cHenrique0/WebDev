@@ -1,0 +1,97 @@
+<!--
+    Tabelas:
+        Usamos o elemento <table> para criar tabelas no HTML
+        
+        - Prós:
+            Visualização de dados via linhas e colunas
+            Boa acessibilidade para leitura de dados
+        
+        - Contras:
+            Pouco flexivel. Não se adapta facilmente a qualquer tipo de layout
+            Precisa de extilização(CSS) para melhor visualização
+        
+        OBS:
+            Apesar de ser possivel, NÃO devemos usar tabelas para criar layout.
+-->
+
+<h1>Praticando a criação de tabelas</h1>
+<p>
+    <h2>1. Criando uma tabela basica</h2>
+    
+    <table> <!-- Cria a tabela -->
+        <caption>Pessoa por idade</caption> <!-- Descreve o conteudo da tabela-->
+        <thead> <!-- Cabeçalho da tabela. Sempre colocar o cabeçalho da tabela na tag thead-->
+            <tr> <!--Cria uma lina na tabela (table row)-->
+                <th>Nome</th> <!-- Cria um cabeçalho (table head)-->
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody> <!-- Corpo da tabela. Onde fica o conteudo da tabela-->
+            <tr>
+                <td>Marcos</td> <!-- Conteudo da linha-->
+                <td>35</td>
+            </tr>
+            <tr>
+                <td>Diego</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Maria</td>
+                <td>18</td>
+            </tr>
+        </tbody>
+        <tfoot> <!-- Rodapé da tabela-->
+            <tr>
+                <td>Total:</td>
+                <td>3 pessoas</td>
+            </tr>
+        </tfoot>
+    </table>
+</p>
+
+<p>
+    <h2>2. Criando uma tabela complexa</h2>
+    <table>
+        <caption>Produzidos x Vendidos por loja</caption>
+
+        <colgroup> <!-- tag para agrupar colunas -->
+            <col>  <!-- primeira coluna -->
+            <col style="background-color: red" span="2">  <!-- segunda coluna -->
+            <col style="background-color: blue" span="2">  <!-- terceira coluna -->
+            <!-- Para a estilização da coluna deve-se usar CSS, mas para efeito
+            de aprendizado estamos usando o syle direto no HTML-->
+        </colgroup>
+
+        <thead>
+            <tr>
+                <th rowspan="2"></th> <!-- rowspan="x", ocupa x linhas-->
+                <th colspan="2" scope="colgroup">LOJA 1</th> <!-- colspan="x", ocupa x colunas-->
+                <th colspan="2" scope="colgroup">LOJA 2</th>
+                <!-- o atributo scope ajuda na acessibilidade, nos leitores de tela, etc-->
+            </tr>
+            <tr>
+                <th scope="col">Produzidos</th>
+                <th scope="col">Vendidos</th>
+                <th scope="col">Produzidos</th>
+                <th scope="col">Vendidos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">Vassouras</th>
+                <td>50</td>
+                <td>30</td>
+                <td>20</td>
+                <td>20</td>
+            </tr>
+            <tr>
+                <th scope="row">Baldes</th>
+                <td>10</td>
+                <td>10</td>
+                <td>30</td>
+                <td>25</td>
+            </tr>
+        </tbody>
+        <tfoot></tfoot>
+    </table>
+</p>

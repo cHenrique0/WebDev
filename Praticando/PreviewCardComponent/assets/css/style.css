@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+}
+
+body {
+  max-width: 1440px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 625px;
+  background: hsl(0, 0%, 95%);
+}
+
+.preview-card {
+  display: flex;
+  justify-content: center;
+  max-width: 900px;
+  min-height: 450px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.content-left {
+  background: hsl(31, 77%, 52%);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.content-center {
+  background: hsl(184, 100%, 22%);
+}
+
+.content-right {
+  background: hsl(179, 100%, 13%);
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.preview-card__content {
+  display: flex;
+  flex: 1 1 300px;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 300px;
+  min-height: 500px;
+  padding: 50px;
+  justify-content: space-between;
+}
+
+.preview-card__title {
+  font-family: 'Big Shoulders Display', cursive;
+  font-size: 3em;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: hsl(0, 0%, 95%);
+}
+
+.preview-card__desc {
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 0.9em;
+  color: hsla(0, 0%, 100%, 0.75);
+  font-weight: 400;
+  line-height: 2;
+}
+
+.content-left button {
+  color: hsl(31, 77%, 52%);
+}
+
+.content-center button {
+  color: hsl(184, 100%, 22%);
+}
+
+.content-right button {
+  color: hsl(179, 100%, 13%);
+}
+
+.preview-card__button button{
+  border: none;
+  outline: none;
+  background: hsl(0, 0%, 95%);
+  border-radius: 30px;
+  padding: 15px 30px;
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 0.9em;
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.preview-card__button button:hover {
+  color: hsl(0, 0%, 95%);
+  outline: hsl(0, 0%, 95%) 2px solid;
+}
+
+.content-left button:hover {
+  background: hsl(31, 77%, 52%);
+}
+.content-center button:hover {
+  background: hsl(184, 100%, 22%);
+}
+
+.content-right button:hover {
+  background: hsl(179, 100%, 13%);
+}
+
+@media (max-width: 600px) {
+  body {
+    max-width: 375px;
+    align-items: flex-start;
+    padding: 100px 0;
+  }
+  
+  .preview-card {
+    flex-direction: column;
+    max-width: 370px;
+  }
+
+  .content-left {
+    border-radius: 0;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+
+  .content-right {
+    border-radius: 0;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}

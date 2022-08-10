@@ -1,0 +1,179 @@
+body,
+h1,
+h2,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Archivo Narrow', sans-serif;
+  color: #222;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Header */
+.header {
+  background: white;
+  color: #222;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  max-height: 125px;
+  margin: 0 auto;
+  padding: 25px 15px;
+}
+
+.menu a {
+  color: #222;
+}
+
+.menu-logo img {
+  max-width: 90px;
+}
+
+.menu-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.menu-nav a {
+  display: block;
+  padding: 10px;
+  margin: 10px 10px;
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.menu-nav a:hover {
+  border-bottom: 1px solid #222;
+}
+
+.carrinho a {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 10px;
+  text-transform: uppercase;
+  font-size: 0.875em;
+}
+
+.carrinho a:hover {
+  border-bottom: 1px solid #222;
+}
+
+/* Banner */
+.banner-bg {
+  background: #222;
+}
+
+/* Camisas Historicas */
+.camisas-historicas {
+  max-width: 1200px;
+  margin: 50px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.camisas-historicas-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex: 2 1 300px;
+  margin: 0 10px;
+}
+
+.camisas-historicas-info h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+  color: #071f46;
+  text-align: center;
+}
+
+.camisas-historicas-info p {
+  font-size: 1.125em;
+  color: #222;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.camisas-historicas-info a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875em;
+  color: white;
+  text-align: center;
+  align-self: center;
+  background: #071f46;
+  max-width: 180px;
+  padding: 20px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  margin: 30px 0;
+}
+
+.camisas-historicas-img {
+  flex: 1 1 300px;
+  margin: 0 10px;
+}
+
+.camisas-historicas-img img {
+  border-radius: 50px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  height: 240px;
+  margin: 0 auto;
+}
+
+.contatos {
+  margin: 20px 0;
+}
+
+.contatos a {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1em;
+  text-transform: uppercase;
+  text-decoration: underline;
+  color: #071f46;
+  padding: 5px;
+}
+
+.redes-sociais {
+  display: flex;
+  max-width: 1200px;
+  margin: 10px;
+}
+
+.redes-sociais a {
+  margin: 0 30px;
+}
