@@ -1,0 +1,3 @@
+# Sequelize
+
+# sequelize-typescript
