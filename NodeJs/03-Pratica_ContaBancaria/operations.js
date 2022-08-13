@@ -3,6 +3,7 @@ import chalk from "chalk";
 import path from "path";
 import fs from "fs";
 import inquirer from "inquirer";
+import { systemInit } from "./system.js";
 
 export function createAccount() {
   console.log(chalk.bgCyan.black(`      Create account      `));
@@ -46,8 +47,9 @@ export function createAccount() {
       storeAccount(newAccount);
       console.log(
         chalk.bgCyan.black("\nYour account has been created successfully."),
-        `\nSave the account number: ${chalk.green(newAccount.account)}`
+        `\nSave the account number: ${chalk.green(newAccount.account)}\n`
       );
+      return systemInit();
     });
 }
 
@@ -73,10 +75,11 @@ export function checkBalance() {
           .indexOf(Number(account));
         const accountMatch = accountJSON.accounts[accountMatchIndex];
         if (accountMatchIndex === -1) {
-          console.log("This account doesn't exists");
-          return;
+          console.log("This account doesn't exists\n");
+          return systemInit();
         }
-        console.log(`Your balance: R$ ${accountMatch.balance}`);
+        console.log(`Your balance: R$ ${accountMatch.balance}\n`);
+        return systemInit();
       });
     });
 }
@@ -103,8 +106,8 @@ export function deposit() {
           .indexOf(Number(account));
         const accountMatch = accountJSON.accounts[accountMatchIndex];
         if (accountMatchIndex === -1) {
-          console.log("This account doesn't exists");
-          return;
+          console.log("This account doesn't exists\n");
+          return systemInit();
         }
         inquirer
           .prompt({
@@ -115,7 +118,8 @@ export function deposit() {
             const { amount } = answer;
             accountMatch.balance += Number(amount);
             storeAccount(accountMatch);
-            console.log(chalk.green("Deposit made successfully"));
+            console.log(chalk.green("Deposit made successfully\n"));
+            return systemInit();
           });
       });
     });
@@ -143,8 +147,8 @@ export function withdraw() {
           .indexOf(Number(account));
         const accountMatch = accountJSON.accounts[accountMatchIndex];
         if (accountMatchIndex === -1) {
-          console.log("This account doesn't exists");
-          return;
+          console.log("This account doesn't exists\n");
+          return systemInit();
         }
         inquirer
           .prompt({
@@ -154,12 +158,13 @@ export function withdraw() {
           .then((answer) => {
             const { amount } = answer;
             if (Number(amount) > accountMatch.balance || Number(amount) === 0) {
-              console.log(chalk.bgRed.black("You have no available balance"));
-              return;
+              console.log(chalk.bgRed.black("You have no available balance\n"));
+              return systemInit();
             }
             accountMatch.balance -= Number(amount);
             storeAccount(accountMatch);
-            console.log(chalk.green("Withdrawal successful"));
+            console.log(chalk.green("Withdrawal successful\n"));
+            return systemInit();
           });
       });
     });
