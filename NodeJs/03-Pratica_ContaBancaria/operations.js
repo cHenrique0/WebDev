@@ -5,6 +5,7 @@ import fs from "fs";
 import inquirer from "inquirer";
 
 export function createAccount() {
+  console.log(chalk.bgCyan.black(`      Create account      `));
   console.log(chalk.green.italic("\nThank you for choosing us!"));
   console.log(chalk.green.italic("Enter your informations bellow\n"));
 
@@ -51,6 +52,8 @@ export function createAccount() {
 }
 
 export function checkBalance() {
+  console.log(chalk.bgCyan.black(`      Balance      \n`));
+
   inquirer
     .prompt({
       name: "account",
@@ -78,7 +81,9 @@ export function checkBalance() {
     });
 }
 
-export function deposit(amount) {
+export function deposit() {
+  console.log(chalk.bgGreen.black(`      Deposit      \n`));
+
   inquirer
     .prompt({
       name: "account",
@@ -111,6 +116,50 @@ export function deposit(amount) {
             accountMatch.balance += Number(amount);
             storeAccount(accountMatch);
             console.log(chalk.green("Deposit made successfully"));
+          });
+      });
+    });
+}
+
+export function withdraw() {
+  console.log(chalk.bgRed.black(`      Withdraw      \n`));
+
+  inquirer
+    .prompt({
+      name: "account",
+      message: "Enter account number:",
+    })
+    .then((answer) => {
+      const { account } = answer;
+      const location = getStoragePath();
+      fs.readFile(location, (err, data) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        const accountJSON = JSON.parse(data);
+        const accountMatchIndex = accountJSON.accounts
+          .map((acc) => acc.account)
+          .indexOf(Number(account));
+        const accountMatch = accountJSON.accounts[accountMatchIndex];
+        if (accountMatchIndex === -1) {
+          console.log("This account doesn't exists");
+          return;
+        }
+        inquirer
+          .prompt({
+            name: "amount",
+            message: "Enter the amount you want to withdraw:",
+          })
+          .then((answer) => {
+            const { amount } = answer;
+            if (Number(amount) > accountMatch.balance || Number(amount) === 0) {
+              console.log(chalk.bgRed.black("You have no available balance"));
+              return;
+            }
+            accountMatch.balance -= Number(amount);
+            storeAccount(accountMatch);
+            console.log(chalk.green("Withdrawal successful"));
           });
       });
     });
