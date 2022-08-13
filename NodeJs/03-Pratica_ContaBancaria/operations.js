@@ -8,7 +8,7 @@ import { systemInit } from "./system.js";
 export function createAccount() {
   console.log(chalk.bgCyan.black(`      Create account      `));
   console.log(chalk.green.italic("\nThank you for choosing us!"));
-  console.log(chalk.green.italic("Enter your informations bellow\n"));
+  console.log(chalk.green.italic("Enter your informations below\n"));
 
   const id = customAlphabet("123456789", 5);
 
@@ -45,9 +45,29 @@ export function createAccount() {
       };
 
       storeAccount(newAccount);
+
       console.log(
-        chalk.bgCyan.black("\nYour account has been created successfully."),
-        `\nSave the account number: ${chalk.green(newAccount.account)}\n`
+        chalk.bgCyan.black("\nYour account has been created successfully.")
+      );
+      console.log(
+        `Welcome to THE BANK, ${chalk.cyan(
+          newAccount.name
+        )}.\nPlease, follow the instructions below:`
+      );
+      console.log(
+        `${chalk.green("*")} Save the account number: ${chalk.green(
+          newAccount.account
+        )}`
+      );
+      console.log(
+        `${chalk.green(
+          "*"
+        )} With this number you can make transactions with your account`
+      );
+      console.log(
+        `${chalk.green(
+          "*"
+        )} This number is non-transferable. Please, be careful and come back soon!\n`
       );
       return systemInit();
     });
@@ -73,12 +93,17 @@ export function checkBalance() {
         const accountMatchIndex = accountJSON.accounts
           .map((acc) => acc.account)
           .indexOf(Number(account));
-        const accountMatch = accountJSON.accounts[accountMatchIndex];
         if (accountMatchIndex === -1) {
-          console.log("This account doesn't exists\n");
+          console.log(
+            "Sorry.\nThis account doesn't exists\nEnter a valid account number.\n"
+          );
           return systemInit();
         }
-        console.log(`Your balance: R$ ${accountMatch.balance}\n`);
+        const accountMatch = accountJSON.accounts[accountMatchIndex];
+        console.log(`Welcome back, ${chalk.cyan(accountMatch.name)}`);
+        console.log(
+          `Your balance is: ${chalk.green("R$ " + accountMatch.balance)}\n`
+        );
         return systemInit();
       });
     });
@@ -104,11 +129,13 @@ export function deposit() {
         const accountMatchIndex = accountJSON.accounts
           .map((acc) => acc.account)
           .indexOf(Number(account));
-        const accountMatch = accountJSON.accounts[accountMatchIndex];
         if (accountMatchIndex === -1) {
-          console.log("This account doesn't exists\n");
+          console.log(
+            "Sorry.\nThis account doesn't exists\nEnter a valid account number.\n"
+          );
           return systemInit();
         }
+        const accountMatch = accountJSON.accounts[accountMatchIndex];
         inquirer
           .prompt({
             name: "amount",
@@ -145,11 +172,13 @@ export function withdraw() {
         const accountMatchIndex = accountJSON.accounts
           .map((acc) => acc.account)
           .indexOf(Number(account));
-        const accountMatch = accountJSON.accounts[accountMatchIndex];
         if (accountMatchIndex === -1) {
-          console.log("This account doesn't exists\n");
+          console.log(
+            "Sorry.\nThis account doesn't exists.\nEnter a valid account number.\n"
+          );
           return systemInit();
         }
+        const accountMatch = accountJSON.accounts[accountMatchIndex];
         inquirer
           .prompt({
             name: "amount",
@@ -158,7 +187,12 @@ export function withdraw() {
           .then((answer) => {
             const { amount } = answer;
             if (Number(amount) > accountMatch.balance || Number(amount) === 0) {
-              console.log(chalk.bgRed.black("You have no available balance\n"));
+              console.log(
+                chalk.bgRed.black(
+                  `\nDear ${accountMatch.name},\nYou don't have available balance for this transaction.\n`,
+                  `Please, check your balance and try again.\n`
+                )
+              );
               return systemInit();
             }
             accountMatch.balance -= Number(amount);
