@@ -28,19 +28,43 @@ export function createAccount() {
       ],
       {
         account: id(),
+        balance: 0,
       }
     )
     .then((answers) => {
-      const { account, name, age, email } = answers;
+      const { account, name, age, email, balance } = answers;
 
       const newAccount = {
         account: Number(account),
         name,
         age: Number(age),
         email,
+        balance,
       };
 
       storeAccount(newAccount);
+    });
+}
+
+export function checkBalance() {
+  inquirer
+    .prompt({
+      name: "account",
+      message: "Enter account number:",
+    })
+    .then((answer) => {
+      const { account } = answer;
+      const location = getStoragePath();
+      fs.readFile(location, (err, data) => {
+        let accountJSON = JSON.parse(data);
+        accountJSON.accounts.forEach((element) => {
+          if (element.account === Number(account)) {
+            console.log(`Your balance: ${element.balance}`);
+            return;
+          }
+        });
+        console.log("This account doesn't exists");
+      });
     });
 }
 
@@ -89,4 +113,8 @@ function storeAccount(account) {
       );
     });
   });
+}
+
+function getStoragePath() {
+  return path.resolve("./storage/accounts.json");
 }
