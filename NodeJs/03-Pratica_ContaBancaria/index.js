@@ -1,6 +1,6 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
-import { checkBalance, createAccount } from "./operations.js";
+import { checkBalance, createAccount, deposit } from "./operations.js";
 
 // System operation
 function systemInit() {
@@ -14,7 +14,7 @@ function systemInit() {
           "Create an Account",
           "Balance",
           "Deposit",
-          "To withdraw",
+          "Withdraw",
           "Exit",
         ],
       },
@@ -32,6 +32,9 @@ function systemInit() {
       }
       if (action === "Balance") {
         checkBalance();
+      }
+      if (action === "Deposit") {
+        deposit();
       }
     })
     .catch((err) => console.log(err));

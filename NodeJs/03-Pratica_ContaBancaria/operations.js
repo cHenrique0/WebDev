@@ -43,6 +43,10 @@ export function createAccount() {
       };
 
       storeAccount(newAccount);
+      console.log(
+        chalk.bgCyan.black("\nYour account has been created successfully."),
+        `\nSave the account number: ${chalk.green(newAccount.account)}`
+      );
     });
 }
 
@@ -56,14 +60,58 @@ export function checkBalance() {
       const { account } = answer;
       const location = getStoragePath();
       fs.readFile(location, (err, data) => {
-        let accountJSON = JSON.parse(data);
-        accountJSON.accounts.forEach((element) => {
-          if (element.account === Number(account)) {
-            console.log(`Your balance: ${element.balance}`);
-            return;
-          }
-        });
-        console.log("This account doesn't exists");
+        if (err) {
+          console.log(err);
+          return;
+        }
+        const accountJSON = JSON.parse(data);
+        const accountMatchIndex = accountJSON.accounts
+          .map((acc) => acc.account)
+          .indexOf(Number(account));
+        const accountMatch = accountJSON.accounts[accountMatchIndex];
+        if (accountMatchIndex === -1) {
+          console.log("This account doesn't exists");
+          return;
+        }
+        console.log(`Your balance: R$ ${accountMatch.balance}`);
+      });
+    });
+}
+
+export function deposit(amount) {
+  inquirer
+    .prompt({
+      name: "account",
+      message: "Enter account number:",
+    })
+    .then((answer) => {
+      const { account } = answer;
+      const location = getStoragePath();
+      fs.readFile(location, (err, data) => {
+        if (err) {
+          console.log(err);
+          return;
+        }
+        const accountJSON = JSON.parse(data);
+        const accountMatchIndex = accountJSON.accounts
+          .map((acc) => acc.account)
+          .indexOf(Number(account));
+        const accountMatch = accountJSON.accounts[accountMatchIndex];
+        if (accountMatchIndex === -1) {
+          console.log("This account doesn't exists");
+          return;
+        }
+        inquirer
+          .prompt({
+            name: "amount",
+            message: "Enter the amount you want to deposit:",
+          })
+          .then((answer) => {
+            const { amount } = answer;
+            accountMatch.balance += Number(amount);
+            storeAccount(accountMatch);
+            console.log(chalk.green("Deposit made successfully"));
+          });
       });
     });
 }
@@ -97,9 +145,20 @@ function storeAccount(account) {
   const location = createStorage();
 
   fs.readFile(location, (err, data) => {
+    if (err) {
+      console.log(err);
+      return;
+    }
     let accountsJSON = JSON.parse(data);
-
-    accountsJSON.accounts.push(account);
+    const accountMatchIndex = accountsJSON.accounts
+      .map((acc) => acc.account)
+      .indexOf(account.account);
+    if (accountMatchIndex !== -1) {
+      accountsJSON.accounts.splice(accountMatchIndex, 1, account);
+    }
+    if (accountMatchIndex === -1) {
+      accountsJSON.accounts.push(account);
+    }
 
     accountsJSON = JSON.stringify(accountsJSON, null, 2);
 
@@ -108,9 +167,6 @@ function storeAccount(account) {
         console.log(err);
         return;
       }
-      console.log(
-        chalk.bgCyan.black("\nYour account has been created successfully.")
-      );
     });
   });
 }
