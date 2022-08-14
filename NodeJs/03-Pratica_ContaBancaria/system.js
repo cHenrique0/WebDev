@@ -4,6 +4,7 @@ import {
   checkBalance,
   createAccount,
   deposit,
+  transfer,
   withdraw,
 } from "./operations.js";
 
@@ -20,6 +21,7 @@ export function systemInit() {
           "Balance",
           "Deposit",
           "Withdraw",
+          "Transfer",
           "Exit",
         ],
       },
@@ -38,6 +40,9 @@ export function systemInit() {
       }
       if (action === "Withdraw") {
         withdraw();
+      }
+      if (action === "Transfer") {
+        transfer();
       }
       if (action === "Exit") {
         console.log(chalk.bgRed.black(`      Exit      \n`));

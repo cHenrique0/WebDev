@@ -12,6 +12,8 @@ export function createAccount() {
 
   const id = customAlphabet("123456789", 5);
 
+  createStorage();
+
   inquirer
     .prompt(
       [
@@ -219,6 +221,79 @@ export function withdraw() {
     });
 }
 
+export function transfer() {
+  console.log(chalk.bgYellow.black(`      Transfer      \n`));
+
+  inquirer
+    .prompt([
+      {
+        name: "origin",
+        message: "Enter the origin account:",
+      },
+      {
+        name: "target",
+        message: "Enter the target account:",
+      },
+    ])
+    .then((answer) => {
+      const { origin, target } = answer;
+      const originAccount = findAccount(origin);
+      const targetAccount = findAccount(target);
+
+      if (!originAccount) {
+        console.log(
+          chalk.red.italic(
+            "\nThe origin account doesn't exists.\nPlease, check account number."
+          )
+        );
+        return setTimeout(() => {
+          console.clear();
+          transfer();
+        }, 2000);
+      }
+      if (!targetAccount) {
+        console.log(
+          chalk.red.italic(
+            "\nThe target account doesn't exists.\nPlease, check account number."
+          )
+        );
+        return setTimeout(() => {
+          console.clear();
+          transfer();
+        }, 2000);
+      }
+
+      inquirer
+        .prompt({
+          name: "amount",
+          message: "Enter the amount you want to transfer:",
+        })
+        .then((answer) => {
+          const { amount } = answer;
+          if (Number(amount) > originAccount.balance) {
+            console.log(
+              chalk.red.italic(
+                `\nDear ${originAccount.name},\nYou don't have available balance for this transaction.\n`,
+                `Please, check your balance and try again.\n`
+              )
+            );
+            return setTimeout(() => {
+              console.clear();
+              systemInit();
+            }, 3000);
+          }
+          originAccount.balance -= Number(amount);
+          targetAccount.balance += Number(amount);
+          storeAccount(originAccount);
+          setTimeout(() => {
+            storeAccount(targetAccount);
+          }, 1000);
+          console.log(chalk.green("\nTransfer performed successfully\n"));
+          return systemInit();
+        });
+    });
+}
+
 function createStorage() {
   const folderExists = fs.existsSync(path.resolve("./storage"));
   const jsonExists = fs.existsSync(path.resolve("./storage/accounts.json"));
@@ -226,26 +301,24 @@ function createStorage() {
   if (!folderExists) {
     fs.mkdirSync("./storage");
     if (!jsonExists) {
-      fs.writeFileSync("./storage/accounts.json", accountsJSON, (err, file) => {
+      fs.writeFileSync("./storage/accounts.json", accountsJSON, (err) => {
         if (err) {
           console.log(err);
         }
       });
     }
-    return path.resolve("./storage/accounts.json");
   }
   if (!jsonExists) {
-    fs.writeFileSync("./storage/accounts.json", accountsJSON, (err, file) => {
+    fs.writeFileSync("./storage/accounts.json", accountsJSON, (err) => {
       if (err) {
         console.log(err);
       }
     });
   }
-  return path.resolve("./storage/accounts.json");
 }
 
 function storeAccount(account) {
-  const location = createStorage();
+  const location = getStoragePath();
 
   fs.readFile(location, (err, data) => {
     if (err) {
@@ -265,7 +338,7 @@ function storeAccount(account) {
 
     accountsJSON = JSON.stringify(accountsJSON, null, 2);
 
-    fs.writeFile(location, accountsJSON, (err, data) => {
+    fs.writeFile(location, accountsJSON, (err) => {
       if (err) {
         console.log(err);
         return;
