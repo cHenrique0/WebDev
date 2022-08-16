@@ -1,0 +1,11 @@
+<h1>Getting data from the back-end</h1>
+<p>The username is {{user.name}} {{user.surname}} </p>
+
+<h2>Mock authentication:</h2>
+{{#if auth}}
+  <p>
+    You have authenticated.
+    <a href="/dashboard">Click here</a>
+    to access the user dashboard.
+  </p>
+{{/if}}
