@@ -7,10 +7,10 @@ const port = 3000;
 // set up handlebars
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
-app.set("views", "./views");
 
 app.get("/", (request, response) => {
-  return response.status(200).render("home"); // rendering view or template
+  // using layout: false because we don't have any layouts yet
+  return response.status(200).render("home", { layout: false });
 });
 
 app.listen(port, () => {
