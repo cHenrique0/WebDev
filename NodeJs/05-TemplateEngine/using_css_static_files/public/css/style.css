@@ -1,0 +1,15 @@
+body {
+  background-color: blueviolet;
+  text-align: center;
+  padding: 2em;
+}
+
+h1 {
+  color: black;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+img {
+  width: 800px;
+  height: 400px;
+}
