@@ -1,4 +1,5 @@
 const { Sequelize } = require("sequelize");
+const path = require("path");
 const dotenv = require("dotenv");
 
 dotenv.config();
@@ -14,5 +15,14 @@ const sequelize = new Sequelize(database, dbUser, dbPassword, {
   dialect: dbDialect,
   logging: false,
 });
+
+// sequelize
+//   .authenticate()
+//   .then(() => {
+//     console.log(`* Database connected successfully`);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
 module.exports = sequelize;

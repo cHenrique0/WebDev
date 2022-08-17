@@ -19,13 +19,12 @@ app.get("/", (request, response) => {
 
 // Database connection
 connection
-  .authenticate()
-  .then(() => {
-    console.log(`> Database connected successfully`);
+  .sync()
+  .then((conn) => {
+    console.log(`* Database '${conn.getDatabaseName()}' synced successfully`);
     app.listen(port, () => {
-      console.log(`> Application is runnig at: http://localhost:3000/`);
+      console.log(`* Application is running at port: ${port}`);
+      console.log(`* Click here to open homepage: http://localhost:${port}/`);
     });
   })
-  .catch((err) => {
-    console.log(err);
-  });
+  .catch((err) => console.log(err));
