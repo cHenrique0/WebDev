@@ -1,0 +1,23 @@
+{
+  "name": "01-connection",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "dev": "nodemon ./index.js"
+  },
+  "keywords": [],
+  "author": "Claudio Henrique <claudio.alexandre@discente.ufma.br>",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "express-handlebars": "^6.0.6",
+    "mysql2": "^2.3.3",
+    "sequelize": "^6.21.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

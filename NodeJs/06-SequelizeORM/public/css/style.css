@@ -1,0 +1,44 @@
+* {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+}
+
+#nav-bar {
+  border-bottom: 1px solid white;
+  padding: 0.5em;
+  margin-bottom: 1em;
+}
+
+#nav-bar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+}
+
+#nav-bar ul li {
+  margin-left: 1em;
+}
+
+h1 {
+  text-align: center;
+}
+
+form {
+  width: 450px;
+  margin: 0 auto;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.5em;
+}
+
+.form-control label {
+  font-weight: bold;
+  margin-bottom: 0.3em;
+}
+
+.form-control input {
+  padding: 5px;
+}
