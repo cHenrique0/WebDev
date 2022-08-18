@@ -14,10 +14,12 @@ app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
 
+// Show the registration page
 app.get("/users/create", (request, response) => {
   return response.status(200).render("add-user");
 });
 
+// Insert data in the database
 app.post("/users/create", async (request, response) => {
   const { name, occupation } = request.body;
   const newsletter = request.body.newsletter === "on" ? true : false;
@@ -33,8 +35,12 @@ app.post("/users/create", async (request, response) => {
   return response.status(201).redirect("/");
 });
 
-app.get("/", (request, response) => {
-  return response.status(200).render("home");
+app.get("/", async (request, response) => {
+  // Select users
+  // raw: true only returns a list of user objects
+  // Test findAll without raw and print it on the console
+  const users = await User.findAll({ raw: true });
+  return response.status(200).render("home", { users });
 });
 
 // Database connection
