@@ -43,6 +43,15 @@ app.get("/users/:uuid", async (request, response) => {
   return response.status(200).render("find-user", { user });
 });
 
+// Delete user
+app.post("/users/delete/:uuid", async (request, response) => {
+  const { uuid } = request.params;
+  const deletedUser = await User.destroy({ where: { uuid } });
+  if (deletedUser > 0) {
+    return response.status(200).redirect("/");
+  }
+});
+
 app.get("/", async (request, response) => {
   // Select: all users
   // raw: true only returns a list of user objects

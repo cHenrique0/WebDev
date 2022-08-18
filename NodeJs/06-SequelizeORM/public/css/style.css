@@ -24,7 +24,7 @@ h1 {
   margin-bottom: 1em;
 }
 
-form {
+.form {
   width: 450px;
   margin: 0 auto;
 }
@@ -82,5 +82,29 @@ form {
 
 .actions {
   display: flex;
-  align-self: flex-end;
+  justify-content: space-between;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.actions a,
+.actions button {
+  border: 1px solid #BBB;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #FFF;
+  padding: 5px;
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+}
+
+.actions .details-btn {
+  border-color: #004085;
+  color: #004085;
+}
+
+.actions .delete-btn {
+  border-color: #b92a38;
+  color: #b92a38;
 }
