@@ -1,39 +1,44 @@
 const { Model, DataTypes } = require("sequelize");
 const connection = require("../database/connection");
-const Address = require("./Address");
+const User = require("./User");
 
-class User extends Model {}
+class Address extends Model {}
 
-User.init(
+Address.init(
   {
     uuid: {
       type: DataTypes.UUID,
       defaultValue: DataTypes.UUIDV4,
       primaryKey: true,
       unique: true,
-      // allowNull: false,
       required: true,
     },
-    name: {
+    street: {
       type: DataTypes.STRING,
-      // allowNull: false,
       required: true,
     },
-    occupation: {
+    number: {
       type: DataTypes.STRING,
-      // allowNull: false,
       required: true,
     },
-    newsletter: {
-      type: DataTypes.BOOLEAN,
+    city: {
+      type: DataTypes.STRING,
+      required: true,
+    },
+    state: {
+      type: DataTypes.STRING,
+      required: true,
     },
   },
   {
     sequelize: connection,
-    tableName: "users",
+    tableName: "adresses",
     timestamps: true,
     underscored: true,
   }
 );
 
-module.exports = User;
+// Relationship - Address belongs to a User
+// Address.belongsTo(User);
+
+module.exports = Address;

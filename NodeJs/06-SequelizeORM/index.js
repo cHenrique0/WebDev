@@ -1,6 +1,8 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
 const connection = require("./database/connection");
+const associations = require("./models/associations");
+const Address = require("./models/Address");
 const User = require("./models/User");
 
 const app = express();
@@ -73,6 +75,22 @@ app.post("/users/update", async (request, response) => {
   await User.update({ ...updatedUser }, { where: { uuid } });
 
   return response.status(200).redirect("/");
+});
+
+// Create address
+app.post("/address/create", async (request, response) => {
+  const { street, number, city, state, user_id } = request.body;
+  const newAddress = {
+    street,
+    number,
+    city,
+    state,
+    user_id,
+  };
+
+  await Address.create({ ...newAddress });
+
+  return response.status(201).redirect(`/users/edit/${user_id}`);
 });
 
 app.get("/", async (request, response) => {

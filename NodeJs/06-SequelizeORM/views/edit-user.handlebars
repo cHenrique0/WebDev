@@ -29,3 +29,27 @@
   </div>
   <button type="submit">Save</button>
 </form>
+
+<div class="address-container">
+  <h2>Address</h2>
+  <form action="/address/create" method="POST">
+    <input type="hidden" name="user_id" value="{{user.uuid}}" />
+    <div class="form-control">
+      <label for="street">Street</label>
+      <input type="text" name="street" placeholder="Type the street" />
+    </div>
+    <div class="form-control">
+      <label for="number">Number</label>
+      <input type="text" name="number" placeholder="Type the house number" />
+    </div>
+    <div class="form-control">
+      <label for="city">City</label>
+      <input type="text" name="city" placeholder="Type the city" />
+    </div>
+    <div class="form-control">
+      <label for="state">State</label>
+      <input type="text" name="state" placeholder="Type the state" />
+    </div>
+    <button type="submit">Save address</button>
+  </form>
+</div>
