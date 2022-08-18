@@ -52,6 +52,29 @@ app.post("/users/delete/:uuid", async (request, response) => {
   }
 });
 
+// Update user - view
+app.get("/users/edit/:uuid", async (request, response) => {
+  const { uuid } = request.params;
+  const user = await User.findByPk(uuid, { raw: true });
+
+  return response.status(200).render("edit-user", { user });
+});
+
+// Update user - updating data
+app.post("/users/update", async (request, response) => {
+  const { uuid, name, occupation } = request.body;
+  const newsletter = request.body.newsletter === "on" ? true : false;
+  const updatedUser = {
+    name,
+    occupation,
+    newsletter,
+  };
+
+  await User.update({ ...updatedUser }, { where: { uuid } });
+
+  return response.status(200).redirect("/");
+});
+
 app.get("/", async (request, response) => {
   // Select: all users
   // raw: true only returns a list of user objects

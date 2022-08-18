@@ -1,4 +1,4 @@
-<h1>Hello Sequelize</h1>
+<h1>Registered users</h1>
 
 <div class="container">
   {{#each users}}
@@ -7,8 +7,8 @@
       <p>{{this.occupation}}</p>
       <div class="actions">
         <a href="/users/{{this.uuid}}" class="details-btn">Details</a>
+        <a href="/users/edit/{{this.uuid}}" class="edit-btn">Edit</a>
         <form action="/users/delete/{{this.uuid}}" method="POST">
-          <input type="hidden" name="_method" value="delete" id="delete" />
           <button type="submit" class="delete-btn">Delete</button>
         </form>
       </div>
