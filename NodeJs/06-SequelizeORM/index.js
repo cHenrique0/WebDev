@@ -25,14 +25,14 @@ app.get("/users/create", (request, response) => {
 app.post("/users/create", async (request, response) => {
   const { name, occupation } = request.body;
   const newsletter = request.body.newsletter === "on" ? true : false;
+  const { street, number, city, state } = request.body;
 
-  const newUser = {
-    name,
-    occupation,
-    newsletter,
-  };
+  const newUser = { name, occupation, newsletter };
 
-  await User.create({ name, occupation, newsletter });
+  await User.create({ ...newUser }).then((user) => {
+    const newAddress = { street, number, city, state, user_uuid: user.uuid };
+    Address.create({ ...newAddress });
+  });
 
   return response.status(201).redirect("/");
 });
@@ -56,10 +56,16 @@ app.post("/users/delete/:uuid", async (request, response) => {
 
 // Update user - view
 app.get("/users/edit/:uuid", async (request, response) => {
-  const { uuid } = request.params;
-  const user = await User.findByPk(uuid, { raw: true });
+  try {
+    const { uuid } = request.params;
+    const user = await User.findByPk(uuid, { include: Address });
 
-  return response.status(200).render("edit-user", { user });
+    return response
+      .status(200)
+      .render("edit-user", { user: user.get({ plain: true }) });
+  } catch (error) {
+    console.log(error);
+  }
 });
 
 // Update user - updating data
@@ -79,18 +85,18 @@ app.post("/users/update", async (request, response) => {
 
 // Create address
 app.post("/address/create", async (request, response) => {
-  const { street, number, city, state, user_id } = request.body;
+  const { street, number, city, state, user_uuid } = request.body;
   const newAddress = {
     street,
     number,
     city,
     state,
-    user_id,
+    user_uuid,
   };
 
   await Address.create({ ...newAddress });
 
-  return response.status(201).redirect(`/users/edit/${user_id}`);
+  return response.status(201).redirect(`/users/edit/${user_uuid}`);
 });
 
 app.get("/", async (request, response) => {

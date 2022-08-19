@@ -32,13 +32,14 @@ Address.init(
   },
   {
     sequelize: connection,
-    tableName: "adresses",
+    tableName: "addresses",
     timestamps: true,
     underscored: true,
   }
 );
 
-// Relationship - Address belongs to a User
-// Address.belongsTo(User);
+// Relationship
+User.hasMany(Address);
+Address.belongsTo(User);
 
 module.exports = Address;

@@ -1,6 +1,7 @@
 * {
   font-family: Helvetica, sans-serif;
   margin: 0;
+  box-sizing: border-box;
 }
 
 #nav-bar {
@@ -116,6 +117,8 @@ h1 {
   margin: 1em auto;
   padding-top: 1em;
   border-top: 1px solid #CCC;
+  display: flex;
+  justify-content: space-around;
 }
 
 .address-container h2 {
@@ -124,4 +127,14 @@ h1 {
 
 .address-container form {
   width: 300px;
+}
+
+.address-list {
+  width: 400px;
+  padding-left: 2em;
+  border-left: 1px solid #CCC;
+}
+
+.address-list p {
+  margin-bottom: 2em;
 }

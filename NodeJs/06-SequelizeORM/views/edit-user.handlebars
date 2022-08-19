@@ -31,9 +31,9 @@
 </form>
 
 <div class="address-container">
-  <h2>Address</h2>
   <form action="/address/create" method="POST">
-    <input type="hidden" name="user_id" value="{{user.uuid}}" />
+    <h2>Address</h2>
+    <input type="hidden" name="user_uuid" value="{{user.uuid}}" />
     <div class="form-control">
       <label for="street">Street</label>
       <input type="text" name="street" placeholder="Type the street" />
@@ -52,4 +52,16 @@
     </div>
     <button type="submit">Save address</button>
   </form>
+  <div class="address-list">
+    <h2>Address List</h2>
+    {{#each user.Addresses}}
+      <p>
+        {{this.street}}
+        -
+        {{this.number}},
+        {{this.city}}/{{this.state}}
+        {{!-- <a href="/users/edit/{{this.uuid}}" class="edit-btn">Edit</a> --}}
+      </p>
+    {{/each}}
+  </div>
 </div>
