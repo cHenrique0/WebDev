@@ -48,20 +48,32 @@
     </div>
     <div class="form-control">
       <label for="state">State</label>
-      <input type="text" name="state" placeholder="Type the state" />
+      <input
+        type="text"
+        name="state"
+        placeholder="Type the state (e.g: SP, RJ, MA)"
+      />
     </div>
     <button type="submit">Save address</button>
   </form>
-  <div class="address-list">
-    <h2>Address List</h2>
-    {{#each user.Addresses}}
-      <p>
-        {{this.street}}
-        -
-        {{this.number}},
-        {{this.city}}/{{this.state}}
-        {{!-- <a href="/users/edit/{{this.uuid}}" class="edit-btn">Edit</a> --}}
-      </p>
-    {{/each}}
-  </div>
+  {{#if hasAddress}}
+    <div class="address-list">
+      <h2>Address List</h2>
+      {{#each user.Addresses}}
+        <div>
+          <p>
+            {{this.street}}
+            -
+            {{this.number}},
+            {{this.city}}/{{this.state}}
+          </p>
+          <form action="/address/delete/{{this.uuid}}" method="POST">
+            <input type="hidden" name="user_uuid" value="{{this.user_uuid}}" />
+            <input type="hidden" name="uuid" value="{{this.uuid}}" />
+            <button type="submit" class="delete-btn">Delete</button>
+          </form>
+        </div>
+      {{/each}}
+    </div>
+  {{/if}}
 </div>

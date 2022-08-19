@@ -130,11 +130,40 @@ h1 {
 }
 
 .address-list {
-  width: 400px;
   padding-left: 2em;
   border-left: 1px solid #CCC;
 }
 
-.address-list p {
-  margin-bottom: 2em;
+.address-list div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #ddd;
+}
+
+.address-list form {
+  margin-left: 1em;
+}
+
+.address-list a,
+.address-list button {
+  border: 1px solid #BBB;
+  border-radius: 5px;
+  text-decoration: none;
+  background-color: #FFF;
+  padding: 5px;
+  font-size: 15px;
+  color: #000;
+  cursor: pointer;
+}
+
+.address-list .delete-btn {
+  border-color: #b92a38;
+  color: #b92a38;
+}
+
+.address-list .edit-btn {
+  border-color: #004085;
+  color: #004085;
 }

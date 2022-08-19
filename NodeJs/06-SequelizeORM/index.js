@@ -59,10 +59,11 @@ app.get("/users/edit/:uuid", async (request, response) => {
   try {
     const { uuid } = request.params;
     const user = await User.findByPk(uuid, { include: Address });
+    let hasAddress = user.Addresses.length > 0 ? true : false;
 
     return response
       .status(200)
-      .render("edit-user", { user: user.get({ plain: true }) });
+      .render("edit-user", { user: user.get({ plain: true }), hasAddress });
   } catch (error) {
     console.log(error);
   }
@@ -97,6 +98,16 @@ app.post("/address/create", async (request, response) => {
   await Address.create({ ...newAddress });
 
   return response.status(201).redirect(`/users/edit/${user_uuid}`);
+});
+
+// Delete address
+app.post("/address/delete/:uuid", async (request, response) => {
+  const { uuid } = request.params;
+  const { user_uuid } = request.body;
+  const deletedAddress = await Address.destroy({ where: { uuid } });
+  if (deletedAddress > 0) {
+    return response.status(200).redirect(`/users/edit/${user_uuid}`);
+  }
 });
 
 app.get("/", async (request, response) => {
