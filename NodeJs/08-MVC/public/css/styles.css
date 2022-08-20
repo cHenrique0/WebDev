@@ -1,0 +1,85 @@
+* {
+  font-family: Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #FFF;
+  border-bottom: 1px solid #CCC;
+  padding: 1em 2em;
+  margin-bottom: 1em;
+  background-color: #148ad8;
+}
+
+#navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+#navbar ul li {
+  margin-left: 1em;
+}
+
+#navbar ul li a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #FFF;
+  padding: 1em;
+}
+
+#navbar ul li a:hover {
+  background-color: #FFF;
+  color: #148ad8;
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 2em auto;
+}
+
+.container {
+  max-width: 450px;
+  margin: 2em auto;
+}
+
+.container form {
+  margin-top: 1.5em;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+}
+
+.form-control input,
+.form-control textarea {
+  padding: 7px;
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  font-size: 1em;
+}
+
+.form-control label {
+  font-weight: bold;
+}
+
+form button[type="submit"] {
+  background-color: #148ad8;
+  color: #FFF;
+  padding: 0.7em 1.5em;
+  font-weight: bold;
+  font-size: 1em;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.form-checkbox {
+  flex-direction: row;
+}
