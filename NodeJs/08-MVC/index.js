@@ -1,6 +1,7 @@
 const express = require("express");
 const { engine } = require("express-handlebars");
 const connectionDB = require("./database/connection");
+const indexRouter = require("./routes/indexRoutes");
 
 const app = express();
 const port = process.env.APP_PORT;
@@ -12,6 +13,8 @@ app.use(express.static("public"));
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
 app.set("views", "./views");
+
+app.use(indexRouter);
 
 connectionDB.sync().then((conn) => {
   console.log(`* [${conn.getDatabaseName()}] database synced successfully`);
