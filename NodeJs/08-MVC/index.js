@@ -7,6 +7,7 @@ const port = process.env.APP_PORT;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.static("public"));
 
 app.engine("handlebars", engine());
 app.set("view engine", "handlebars");
