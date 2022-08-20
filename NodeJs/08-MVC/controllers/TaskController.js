@@ -1,15 +1,16 @@
 const Task = require("../models/Task");
+const { StatusCodes } = require("http-status-codes");
 
 module.exports = class TaskController {
   // show all tasks
   static async getTasks(request, response) {
     const taskList = await Task.findAll({ raw: true });
-    return response.status(200).render("tasks/list", { taskList });
+    return response.status(StatusCodes.OK).render("tasks/list", { taskList });
   }
 
   // task create page
   static createTaskView(request, response) {
-    return response.status(200).render("tasks/create");
+    return response.status(StatusCodes.OK).render("tasks/create");
   }
 
   // create a task
@@ -20,6 +21,6 @@ module.exports = class TaskController {
 
     await Task.create(newTask).catch((error) => console.log(error));
 
-    return response.status(201).redirect("/tasks/list");
+    return response.status(StatusCodes.CREATED).redirect("/tasks/list");
   }
 };
