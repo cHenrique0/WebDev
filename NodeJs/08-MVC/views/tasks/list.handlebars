@@ -7,7 +7,11 @@
         <div class="actions">
           <a href="/"><i class="bi bi-check-square"></i></a>
           <a href="/"><i class="bi bi-pencil-square"></i></a>
-          <a href="/"><i class="bi bi-x-square"></i></a>
+          <form action="/tasks/delete/{{this.uuid}}" method="POST">
+            <button type="submit">
+              <i class="bi bi-x-square"></i>
+            </button>
+          </form>
         </div>
       </li>
     {{/each}}

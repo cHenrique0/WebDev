@@ -8,4 +8,6 @@ taskRouter.get("/create", TaskController.createTaskView);
 
 taskRouter.post("/create", TaskController.createTask);
 
+taskRouter.post("/delete/:uuid", TaskController.deleteTask);
+
 module.exports = taskRouter;

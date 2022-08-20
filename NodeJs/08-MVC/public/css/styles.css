@@ -69,7 +69,7 @@
   font-weight: bold;
 }
 
-form button[type="submit"] {
+.form button[type="submit"] {
   background-color: #148ad8;
   color: #FFF;
   padding: 0.7em 1.5em;
@@ -122,4 +122,15 @@ form button[type="submit"] {
 
 .actions i:hover {
   color: #148ad8;
+}
+
+.actions form {
+  margin: 0;
+}
+
+.actions button[type="submit"] {
+  font-size: 1em;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

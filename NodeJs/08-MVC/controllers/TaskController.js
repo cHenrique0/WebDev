@@ -23,4 +23,13 @@ module.exports = class TaskController {
 
     return response.status(StatusCodes.CREATED).redirect("/tasks/list");
   }
+
+  // delete a task
+  static async deleteTask(request, response) {
+    const { uuid } = request.params;
+
+    await Task.destroy({ where: { uuid } });
+
+    return response.status(StatusCodes.OK).redirect("/tasks/list");
+  }
 };
