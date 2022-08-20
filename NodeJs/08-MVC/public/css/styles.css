@@ -83,3 +83,43 @@ form button[type="submit"] {
 .form-checkbox {
   flex-direction: row;
 }
+
+.task-list {
+  list-style: none;
+  margin-top: 1em;
+}
+
+.task-list li {
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border-bottom: 1px solid #EFEFEF;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list .title {
+  font-weight: bold;
+  color: #148ad8;
+  transition: 0.5s;
+  font-size: 1.25em;
+}
+
+.task-list .title:hover {
+  color: #333;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: 90px;
+}
+
+.actions i {
+  font-size: 1.25em;
+  color: #333;
+}
+
+.actions i:hover {
+  color: #148ad8;
+}

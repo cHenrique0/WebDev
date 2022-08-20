@@ -1,10 +1,15 @@
 <div class="container">
   <h1>Tasks</h1>
-  {{#each taskList}}
-    <div class="task">
-      <h3>{{this.title}}</h3>
-      <p>{{this.description}}</p>
-      <p>{{this.done}}</p>
-    </div>
-  {{/each}}
+  <ul class="task-list">
+    {{#each taskList}}
+      <li>
+        <a href="/" class="title">{{this.title}}</a>
+        <div class="actions">
+          <a href="/"><i class="bi bi-check-square"></i></a>
+          <a href="/"><i class="bi bi-pencil-square"></i></a>
+          <a href="/"><i class="bi bi-x-square"></i></a>
+        </div>
+      </li>
+    {{/each}}
+  </ul>
 </div>
