@@ -8,7 +8,18 @@ module.exports = class TaskController {
   }
 
   // task create page
-  static viewTaskCreate(request, response) {
+  static createTaskView(request, response) {
     return response.status(200).render("tasks/create");
+  }
+
+  // create a task
+  static async createTask(request, response) {
+    const { title, description } = request.body;
+    const done = false;
+    const newTask = { title, description, done };
+
+    await Task.create(newTask).catch((error) => console.log(error));
+
+    return response.status(201).redirect("/tasks/list");
   }
 };

@@ -4,6 +4,8 @@ const taskRouter = Router();
 
 taskRouter.get("/list", TaskController.getTasks);
 
-taskRouter.get("/create", TaskController.viewTaskCreate);
+taskRouter.get("/create", TaskController.createTaskView);
+
+taskRouter.post("/create", TaskController.createTask);
 
 module.exports = taskRouter;
