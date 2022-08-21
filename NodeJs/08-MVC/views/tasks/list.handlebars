@@ -31,11 +31,15 @@
     {{#if taskList}}
       {{#each taskList}}
         <li>
-          {{#if this.done}}
-            <a href="/" class="title done">{{this.title}}</a>
-          {{else}}
-            <a href="/" class="title">{{this.title}}</a>
-          {{/if}}
+          <div class="task-content">
+            {{#if this.done}}
+              <h1 class="title done">{{this.title}}</h1>
+              <p class="done">{{this.description}}</p>
+            {{else}}
+              <h1 class="title">{{this.title}}</h1>
+              <p>{{this.description}}</p>
+            {{/if}}
+          </div>
           <div class="actions">
             <form action="/tasks/done/{{this.uuid}}" method="POST">
               <button type="submit">

@@ -135,6 +135,17 @@
   color: #a09e9e
 }
 
+.task-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.task-content p {
+  font-size: 0.8em;
+  color: #333;
+}
+
 .actions {
   display: flex;
   justify-content: space-between;
