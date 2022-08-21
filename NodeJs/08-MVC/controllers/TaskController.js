@@ -41,4 +41,11 @@ module.exports = class TaskController {
 
     return response.status(StatusCodes.OK).redirect("/tasks/list");
   }
+
+  // task update page
+  static async updateTaskView(request, response) {
+    const { uuid } = request.params;
+    const task = await Task.findByPk(uuid, { raw: true });
+    return response.status(StatusCodes.OK).render("tasks/edit", { task });
+  }
 };
