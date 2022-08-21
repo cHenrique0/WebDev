@@ -161,10 +161,6 @@
   cursor: pointer;
 }
 
-.teste {
-  display: flex;
-}
-
 .task-filter {
   display: flex;
   justify-content: space-around;
