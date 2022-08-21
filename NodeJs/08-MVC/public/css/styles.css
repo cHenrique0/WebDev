@@ -43,6 +43,8 @@
 }
 
 .container {
+  display: flex;
+  flex-direction: column;
   max-width: 450px;
   margin: 2em auto;
 }
@@ -148,12 +150,17 @@
   cursor: pointer;
 }
 
+.teste {
+  display: flex;
+}
+
 .task-filter {
   display: flex;
   justify-content: space-around;
   align-items: center;
   border-top: 1px solid #CCC;
   border-bottom: 1px solid #CCC;
+  margin-top: 1em;
   padding: 0.25em;
 }
 
@@ -179,6 +186,21 @@
   color: #FFF;
 }
 
+.show-filters-btn {
+  background-color: #148ad8;
+  color: #FFF;
+  border: 1px solid #148ad8;
+  border-radius: 0.5em;
+  padding: 0.25em 0.5em;
+  margin: 0 auto;
+  margin-top: 1em;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.show-filters {
+  display: none;
+}
 
 .task-search {
   position: relative;
