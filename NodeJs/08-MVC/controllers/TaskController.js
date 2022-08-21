@@ -81,7 +81,7 @@ module.exports = class TaskController {
     const { done } = await Task.findByPk(uuid, { raw: true });
 
     const doneTask = {
-      done: !!done ? false : true,
+      done: !!Number(done) ? false : true,
     };
 
     await Task.update({ ...doneTask }, { where: { uuid } });
