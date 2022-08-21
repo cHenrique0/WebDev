@@ -5,16 +5,30 @@ const { Op } = require("sequelize");
 module.exports = class TaskController {
   // show all tasks
   static async getTasks(request, response) {
-    const { title } = request.query;
+    let { title, done } = request.query;
     let condition = title ? { title: { [Op.like]: `%${title}%` } } : undefined;
+    let notice = "";
+
+    // prepare condition to filter done task
+    if (done === "1") {
+      condition = { done: true };
+      notice = "You haven't done any tasks yet";
+    }
+    // prepare condition to filter not done task
+    if (done === "0") {
+      condition = { done: false };
+      notice = "You have done all tasks";
+    }
+
     const taskList = await Task.findAll({
       where: condition,
       raw: true,
       order: ["title"],
     });
+
     return response
       .status(StatusCodes.OK)
-      .render("tasks/list", { taskList, title });
+      .render("tasks/list", { taskList, title, done, notice });
   }
 
   // task create page
