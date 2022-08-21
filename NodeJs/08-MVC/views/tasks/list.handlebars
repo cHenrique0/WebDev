@@ -1,19 +1,35 @@
 <div class="container">
   <h1>Tasks</h1>
+  <form class="task-search" method="GET">
+    <input type="search" name="title" placeholder="Search a task by title" />
+    <button type="submit">
+      <i class="bi bi-search"></i>
+    </button>
+  </form>
   <ul class="task-list">
-    {{#each taskList}}
-      <li>
-        <a href="/" class="title">{{this.title}}</a>
-        <div class="actions">
-          <a href="/"><i class="bi bi-check-square"></i></a>
-          <a href="/"><i class="bi bi-pencil-square"></i></a>
-          <form action="/tasks/delete/{{this.uuid}}" method="POST">
-            <button type="submit">
-              <i class="bi bi-x-square"></i>
-            </button>
-          </form>
-        </div>
-      </li>
-    {{/each}}
+    {{#if taskList}}
+      {{#each taskList}}
+        <li>
+          <a href="/" class="title">{{this.title}}</a>
+          <div class="actions">
+            <a href="/"><i class="bi bi-check-square"></i></a>
+            <a href="/"><i class="bi bi-pencil-square"></i></a>
+            <form action="/tasks/delete/{{this.uuid}}" method="POST">
+              <button type="submit">
+                <i class="bi bi-x-square"></i>
+              </button>
+            </form>
+          </div>
+        </li>
+      {{/each}}
+    {{else}}
+      <div class="task-not-found">
+        <h1>Task <span>'{{title}}'</span> not found</h1>
+        <a href="/tasks/list">
+          <i class="bi bi-arrow-left"></i>
+          Back
+        </a>
+      </div>
+    {{/if}}
   </ul>
 </div>
