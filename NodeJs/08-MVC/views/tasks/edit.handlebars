@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Editing the task: {{task.title}}</h1>
-  <form class="form" action="/tasks/edit" method="POST">
+  <form class="form" action="/tasks/edit/{{task.uuid}}" method="POST">
     <div class="form-control">
       <label for="title">Title</label>
       <input

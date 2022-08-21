@@ -48,4 +48,15 @@ module.exports = class TaskController {
     const task = await Task.findByPk(uuid, { raw: true });
     return response.status(StatusCodes.OK).render("tasks/edit", { task });
   }
+
+  // update a task
+  static async updateTask(request, response) {
+    const { uuid } = request.params;
+    const { title, description } = request.body;
+    const updatedTask = { title, description };
+
+    await Task.update({ ...updatedTask }, { where: { uuid } });
+
+    return response.status(StatusCodes.OK).redirect("/tasks/list");
+  }
 };
