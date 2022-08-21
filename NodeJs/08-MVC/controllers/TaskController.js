@@ -1,11 +1,20 @@
 const Task = require("../models/Task");
 const { StatusCodes } = require("http-status-codes");
+const { Op } = require("sequelize");
 
 module.exports = class TaskController {
   // show all tasks
   static async getTasks(request, response) {
-    const taskList = await Task.findAll({ raw: true });
-    return response.status(StatusCodes.OK).render("tasks/list", { taskList });
+    const { title } = request.query;
+    let condition = title ? { title: { [Op.like]: `%${title}%` } } : undefined;
+    const taskList = await Task.findAll({
+      where: condition,
+      raw: true,
+      order: ["title"],
+    });
+    return response
+      .status(StatusCodes.OK)
+      .render("tasks/list", { taskList, title });
   }
 
   // task create page
