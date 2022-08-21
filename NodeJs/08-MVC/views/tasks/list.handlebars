@@ -10,11 +10,20 @@
     {{#if taskList}}
       {{#each taskList}}
         <li>
-          <a href="/" class="title">{{this.title}}</a>
+          {{#if this.done}}
+            <a href="/" class="title done">{{this.title}}</a>
+          {{else}}
+            <a href="/" class="title">{{this.title}}</a>
+          {{/if}}
           <div class="actions">
-            <a href="/">
+            {{! <a href="/">
               <i class="bi bi-check-square"></i>
-            </a>
+            </a> }}
+            <form action="/tasks/done/{{this.uuid}}" method="POST">
+              <button type="submit">
+                <i class="bi bi-check-square"></i>
+              </button>
+            </form>
             <a href="/tasks/edit/{{this.uuid}}">
               <i class="bi bi-pencil-square"></i>
             </a>

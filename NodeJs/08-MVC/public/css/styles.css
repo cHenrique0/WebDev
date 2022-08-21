@@ -113,6 +113,11 @@
   color: #333;
 }
 
+.task-list .done {
+  text-decoration: line-through;
+  color: #a09e9e
+}
+
 .actions {
   display: flex;
   justify-content: space-between;

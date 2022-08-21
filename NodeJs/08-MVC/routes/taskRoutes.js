@@ -14,4 +14,6 @@ taskRouter.post("/edit/:uuid", TaskController.updateTask);
 
 taskRouter.get("/edit/:uuid", TaskController.updateTaskView);
 
+taskRouter.post("/done/:uuid", TaskController.doneTask);
+
 module.exports = taskRouter;

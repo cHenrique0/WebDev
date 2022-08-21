@@ -59,4 +59,19 @@ module.exports = class TaskController {
 
     return response.status(StatusCodes.OK).redirect("/tasks/list");
   }
+
+  // done task
+  static async doneTask(request, response) {
+    const { uuid } = request.params;
+
+    const { done } = await Task.findByPk(uuid, { raw: true });
+
+    const doneTask = {
+      done: !!done ? false : true,
+    };
+
+    await Task.update({ ...doneTask }, { where: { uuid } });
+
+    return response.status(StatusCodes.OK).redirect("/tasks/list");
+  }
 };
